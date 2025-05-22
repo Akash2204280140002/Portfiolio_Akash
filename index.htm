@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Kumar Yadav | Full-Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --accent: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .title {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+        
+        section {
+            padding: 3rem 0;
+            background-color: white;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 0.5rem auto 0;
+        }
+        
+        .summary {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .education-item, .experience-item, .project-item, .certificate-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .education-item:last-child, 
+        .experience-item:last-child,
+        .project-item:last-child,
+        .certificate-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .item-title {
+            font-size: 1.2rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .item-subtitle {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .item-date {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .item-location {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+        
+        .skill-category h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .project-links a:hover {
+            background-color: var(--dark);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .item-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .item-date {
+                margin-bottom: 0.5rem;
+            }
+            
+            .skill-category {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <!-- Replace with your actual profile image -->
+           <img src="C:\Users\welcome\Desktop\remininew.jpg" alt="Akash Kumar Yadav" class="profile-img">
+           
+            <h1>Akash Kumar Yadav</h1>
+            <p class="title">Gold Medalist MCA | Full-Stack Developer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:akash22071@gmail.com">akash22071@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+919125543129">+91 9125543129</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Varanasi, India</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary">
+                Gold Medalist MCA | Full-Stack Developer (Python/JavaScript) | Django/Flask Specialist.
+                Passionate about building scalable web applications with 4+ projects in Python, Django, and Flask. 
+                Strong in REST APIs, databases (SQL/SQLite3), and DevOps tools (Git/Docker). 
+                Proven ability to deliver clean, efficient code with Agile methodologies.
+            </p>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="item-header">
+                    <h3 class="item-title">Master of Computer Applications (MCA)</h3>
+                    <span class="item-date">August 2022 - August 2024</span>
+                </div>
+                <div class="item-subtitle">Kashi Institute of Technology, Varanasi</div>
+                <div class="item-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Varanasi, Uttar Pradesh, India</span>
+                </div>
+                <p><strong>CGPA:</strong> 8.37</p>
+                <p><strong>Achievement:</strong> Gold Medalist (Highest Academic Performance)</p>
+            </div>
+            
+            <div class="education-item">
+                <div class="item-header">
+                    <h3 class="item-title">Bachelor of Science (B.Sc.)</h3>
+                    <span class="item-date">August 2019 - July 2022</span>
+                </div>
+                <div class="item-subtitle">Jagatpur PG College, Varanasi</div>
+                <div class="item-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Varanasi, Uttar Pradesh, India</span>
+                </div>
+                <p><strong>CGPA:</strong> 7.36</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Skills Summary</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>C Programming</li>
+                        <li>TypeScript</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Frameworks</h3>
+                    <ul class="skill-list">
+                        <li>Flask</li>
+                        <li>Django</li>
+                        <li>Next.js</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul class="skill-list">
+                        <li>Git, GitHub</li>
+                        <li>Docker</li>
+                        <li>Linux</li>
+                        <li>VS Code, PyCharm</li>
+                        <li>AWS (Basic)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <ul class="skill-list">
+                        <li>SQL</li>
+                        <li>SQLite3</li>
+                        <li>MySQL</li>
+                        <li>phpMyAdmin</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Excellent Communication</li>
+                        <li>People Management</li>
+                        <li>Stakeholder Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <h3 class="item-title">Junior Software Engineer</h3>
+                    <span class="item-date">September 2024 - December 2024</span>
+                </div>
+                <div class="item-subtitle"><a href="https://codttech.com/" target="_blank">CodtTech</a></div>
+                <ul class="skill-list">
+                    <li>Proficient in Git for version control and collaboration</li>
+                    <li>Experienced with GitHub for repository management and team workflows</li>
+                    <li>Strong knowledge of JavaScript for dynamic, client-side web development</li>
+                    <li>Skilled in TypeScript for building scalable and type-safe applications</li>
+                    <li>Experienced with Next.js for building server-side rendered React applications</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-item">
+                <div class="item-header">
+                    <h3 class="item-title">Blog Management System</h3>
+                </div>
+                <p><strong>Technologies:</strong> Flask, Python, MySQL, phpMyAdmin</p>
+                <ul class="skill-list">
+                    <li>Developed a blogging website where users can add, update, and delete blogs with an intuitive and responsive user interface</li>
+                    <li>Utilized Flask (Python) as the backend framework for handling requests, routing, and business logic</li>
+                    <li>Integrated MySQL database via phpMyAdmin to store blog data</li>
+                    <li>Implemented CRUD functionality with form validation and error handling</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://github.com/Akash2204280140002/python-flask-blog" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <h3 class="item-title">Student Management System</h3>
+                </div>
+                <p><strong>Technologies:</strong> Django, Python, SQLite3</p>
+                <ul class="skill-list">
+                    <li>Developed a system allowing CRUD operations on student records</li>
+                    <li>Utilized Django with built-in admin panel for easy management</li>
+                    <li>Implemented SQLite3 database to store student data</li>
+                    <li>Designed interactive web forms and followed MVC architecture</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://github.com/Akash2204280140002/Yt-Student-Management-System" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <h3 class="item-title">Multiple Disease Predictor (ML Flask WebApp)</h3>
+                </div>
+                <p><strong>Technologies:</strong> Python, Flask, NumPy, Pandas, Scikit-learn</p>
+                <ul class="skill-list">
+                    <li>Developed ML models to predict diabetes, Parkinson's, and heart disease</li>
+                    <li>Implemented classification algorithms with 92% average accuracy</li>
+                    <li>Deployed as a Flask web app on Heroku with 500+ test cases</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://github.com/Akash2204280140002/Multiple-Disease-Predictor-ML-Flask-WebApp" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <h3 class="item-title">Stock Market Analysis</h3>
+                </div>
+                <p><strong>Technologies:</strong> Python, Pandas, Matplotlib, Seaborn</p>
+                <ul class="skill-list">
+                    <li>Analyzed AAPL stock data using Python data science stack</li>
+                    <li>Created visualizations for trend analysis and forecasting</li>
+                    <li>Developed scripts for fetching and processing stock data</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://github.com/Akash2204280140002/stock_market_analysis" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <h2 class="section-title">Certificates</h2>
+            <div class="certificate-item">
+                <div class="item-header">
+                    <h3 class="item-title">Programming in Python</h3>
+                    <span class="item-date">PySpider Noida</span>
+                </div>
+                <ul class="skill-list">
+                    <li>Mastered fundamental Python syntax, control flow, loops, functions and data structures</li>
+                    <li>Acquired expertise in procedural programming paradigms</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://ibb.co/HD5tSB7Y" target="_blank">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+            
+            <div class="certificate-item">
+                <div class="item-header">
+                    <h3 class="item-title">Database in SQL</h3>
+                    <span class="item-date">QSpider Noida</span>
+                </div>
+                <ul class="skill-list">
+                    <li>Expertise in performing CRUD operations to manage databases</li>
+                    <li>Skilled in writing complex SQL queries including joins and subqueries</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://ibb.co/HD5tSB7Y" target="_blank">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+            
+            <div class="certificate-item">
+                <div class="item-header">
+                    <h3 class="item-title">DevOps Fundamentals</h3>
+                    <span class="item-date">Udemy</span>
+                </div>
+                <ul class="skill-list">
+                    <li>Strong experience with Git for version control</li>
+                    <li>Proficient in containerization using Docker and Kubernetes</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://www.udemy.com/certificate/UC-3fe674bf-824e-41c9-b6be-12ffa6c417e8/" target="_blank">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+            
+            <div class="certificate-item">
+                <div class="item-header">
+                    <h3 class="item-title">Full Stack Development</h3>
+                    <span class="item-date">MindLuster</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://ibb.co/gMG48M1f" target="_blank">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2 class="section-title">Achievements & Awards</h2>
+            <ul class="skill-list">
+                <li>
+                    <strong>Gold Medalist in MCA</strong> - Awarded for securing the highest academic performance in 
+                    Master of Computer Applications at Kashi Institute of Technology, Varanasi (2024)
+                </li>
+            </ul>
+        </section>
+
+        <section id="languages">
+            <h2 class="section-title">Languages</h2>
+            <ul class="skill-list">
+                <li><strong>English</strong> - Full Professional Proficiency</li>
+                <li><strong>Hindi</strong> - Native or Bilingual Proficiency</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h3>Let's Connect</h3>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/akash-kumar-yadav-61a3a3240/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Akash2204280140002/" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:akash22071@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Akash Kumar Yadav. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
